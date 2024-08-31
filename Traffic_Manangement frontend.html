@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Management System Prototype</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .video-section {
+            margin-bottom: 2rem;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .traffic-signal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .signal {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 10px;
+            background-color: gray;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Traffic Management System Prototype Review</h1>
+    </header>
+    <main>
+        <section class="video-section">
+            <h2>Input Video 1</h2>
+            <video controls id="video1">
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <section class="video-section">
+            <h2>Input Video 2</h2>
+            <video controls id="video2">
+                <source src="videoplayback.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <section class="traffic-signal">
+            <div id="red" class="signal"></div>
+            <div id="yellow" class="signal"></div>
+            <div id="green" class="signal"></div>
+        </section>
+        <section>
+            <button onclick="playBoth()">Play Both Videos</button>
+            <button onclick="pauseBoth()">Pause Both Videos</button>
+            <button onclick="changeSignal('red')">Red Signal</button>
+            <button onclick="changeSignal('yellow')">Yellow Signal</button>
+            <button onclick="changeSignal('green')">Green Signal</button>
+        </section>
+    </main>
+    <script>
+        function playBoth() {
+            document.getElementById('video1').play();
+            document.getElementById('video2').play();
+        }
+
+        function pauseBoth() {
+            document.getElementById('video1').pause();
+            document.getElementById('video2').pause();
+        }
+
+        function changeSignal(color) {
+            // Reset all signals to gray
+            document.getElementById('red').style.backgroundColor = 'gray';
+            document.getElementById('yellow').style.backgroundColor = 'gray';
+            document.getElementById('green').style.backgroundColor = 'gray';
+            
+            // Set the selected signal to the specified color
+            document.getElementById(color).style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
